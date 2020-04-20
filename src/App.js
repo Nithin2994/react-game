@@ -23,6 +23,7 @@ import GamesView from './components/gamesView';
 function App() {
   return (
     <HashRouter basename={process.env.PUBLIC_URL+"/"} history={history}>
+      
       <HeaderComponent />
       <Container>
        <Switch>

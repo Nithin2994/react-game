@@ -22,7 +22,7 @@ import GamesView from './components/gamesView';
 
 function App() {
   return (
-    <HashRouter basename="/react-game"  history={history}>
+    <HashRouter history={history}>
       <HeaderComponent />
       <Container>
        <Switch>

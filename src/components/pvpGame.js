@@ -10,7 +10,7 @@ class PVPGame extends React.Component{
 
     componentDidMount(){
 
-        this.ws = new WebSocket('ws://localhost:8081/ws');
+        this.ws = new WebSocket('ws://3.17.67.172:8081/ws');
         this.ws.onopen = () => this.ws.send(JSON.stringify({
             gameId : this.props.pvp.gameId,
             isJoin : "true",

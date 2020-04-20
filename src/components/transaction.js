@@ -32,7 +32,7 @@ class Transaction extends React.Component{
     
             this.props.loadBalances(this.props.username,this.props.token)
         }else{
-            alert("Select currency and type")
+            alert("Select Currency and Type")
         }
         
     }

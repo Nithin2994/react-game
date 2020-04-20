@@ -3,6 +3,7 @@ import history from '../../src/history'
 import store from '../index'
 
 export const saveUser = (username, token) => {
+    
     history.push("/home")
     return {
         type : "SAVE_USER",

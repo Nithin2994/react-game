@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Nithin2994/react-game/static/css/main.19f1033b.chunk.css",
+    "main.js": "/Nithin2994/react-game/static/js/main.ff2b82d5.chunk.js",
+    "main.js.map": "/Nithin2994/react-game/static/js/main.ff2b82d5.chunk.js.map",
+    "runtime-main.js": "/Nithin2994/react-game/static/js/runtime-main.a7570571.js",
+    "runtime-main.js.map": "/Nithin2994/react-game/static/js/runtime-main.a7570571.js.map",
+    "static/js/2.bb34eeb3.chunk.js": "/Nithin2994/react-game/static/js/2.bb34eeb3.chunk.js",
+    "static/js/2.bb34eeb3.chunk.js.map": "/Nithin2994/react-game/static/js/2.bb34eeb3.chunk.js.map",
+    "index.html": "/Nithin2994/react-game/index.html",
+    "precache-manifest.3cddf6c6a07b19a80c3c811a1d35fce0.js": "/Nithin2994/react-game/precache-manifest.3cddf6c6a07b19a80c3c811a1d35fce0.js",
+    "service-worker.js": "/Nithin2994/react-game/service-worker.js",
+    "static/css/main.19f1033b.chunk.css.map": "/Nithin2994/react-game/static/css/main.19f1033b.chunk.css.map",
+    "static/js/2.bb34eeb3.chunk.js.LICENSE.txt": "/Nithin2994/react-game/static/js/2.bb34eeb3.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/Nithin2994/react-game/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a7570571.js",
+    "static/js/2.bb34eeb3.chunk.js",
+    "static/css/main.19f1033b.chunk.css",
+    "static/js/main.ff2b82d5.chunk.js"
+  ]
+}

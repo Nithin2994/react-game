@@ -6,7 +6,6 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "acorn": "^7.1.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "loadash": "^1.0.0",
@@ -44,7 +43,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://nithin2994.github.io/react-game",
+  "homepage": "http://Nithin2994.github.io/react-game",
   "devDependencies": {
     "gh-pages": "^2.2.0"
   }

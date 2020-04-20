@@ -26,7 +26,6 @@ function App() {
       <HeaderComponent />
       <Container>
        <Switch>
-        <Route path="/" component={MainComponent} />  
         <Route path="/login" component={Login} />  
         <Route path="/register" component={Register} />  
         <Route path="/logintest/:type" exact component={MainComponent} />

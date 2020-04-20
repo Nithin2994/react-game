@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Switch} from 'react-router-dom'
+import { Router, Route, Switch, HashRouter} from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import LeaderboardView from './components/leaderboard';
@@ -22,7 +22,7 @@ import GamesView from './components/gamesView';
 
 function App() {
   return (
-    <Router history={history}>
+    <HashRouter history={history}>
       <HeaderComponent />
       <Container>
        <Switch>
@@ -38,7 +38,7 @@ function App() {
         <Route path="/games" extact component={GamesView} />
        </Switch>
       </Container>
-    </Router>
+    </HashRouter>
   );
 }
 

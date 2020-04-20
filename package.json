@@ -46,7 +46,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://throwbackgames.in/",
+  "homepage": "http://throwbackgames.in",
   "devDependencies": {
     "gh-pages": "^2.2.0"
   }

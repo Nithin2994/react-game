@@ -64,7 +64,7 @@ class PVPGame extends React.Component{
             <Row>
                 <Col>
                 <Card>
-                    <Card.Img variant="top" src="/images/user.png" />
+                    <Card.Img variant="top" src="https://github.com/Nithin2994/react-game/blob/gh-pages/images/user.png?raw=true" />
                     <Card.Body>
                         <Card.Title>{this.props.username}</Card.Title>
                         <Card.Text><h2>Score  {this.props.pvpScores[this.props.username]}</h2></Card.Text>

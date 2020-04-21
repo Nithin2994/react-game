@@ -137,12 +137,12 @@ class PVPTikTokToeGame extends React.Component{
             this.setState({
                 myTurn : false
             })
-            this.props.updateBalance();
+            this.updateBalance();
             this.props.updateScore("Covid",this.state.winner,100)
         }
     }
 
-    updateBalance= async () => {
+    updateBalance = async () => {
         const response =  await gameserver.post("/wallet/credit",{
             playerName: this.props.username,
             amount: 100,

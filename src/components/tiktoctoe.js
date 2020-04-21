@@ -16,7 +16,7 @@ class PVPTikTokToeGame extends React.Component{
     }
 
     componentDidUpdate(){
-        if(myTurn == false){
+        if(this.state.myTurn == false){
             setTimeout(()=>{
                 this.setState({
                     winner : "Opponent Disconnected"

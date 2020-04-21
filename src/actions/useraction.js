@@ -50,6 +50,24 @@ export const loadLeaderboardData = (leaderboardId) => async (dispatch) =>{
     })
 }
 
+export const getPlayerLeaderboard = (playerId,leaderboard) => async (dispatch) =>{
+    const username = store.getState().user.username
+    const sessiontoken = store.getState().user.token
+    
+    const response =  await gameserver.get('/leaderboard/'+leaderboard+"/"+username,{
+        headers : {token : sessiontoken}
+    })
+    dispatch({
+        type : "LOAD_PLAYER_LEADERBOARDS_DATA",
+        payload : {
+            rank : response.data.rank,
+            scores : response.data.scores,
+            top : response.data.top,
+            aboveAndBelow : response.data.aboveAndBelow
+        }    
+    })
+}
+
 export const updateScore = (leaderboard,player,score) => async (dispatch) => {
     const sessiontoken = store.getState().user.token
     console.log("sessiontoken ",sessiontoken)

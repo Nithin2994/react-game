@@ -20,11 +20,11 @@ class Wallet extends React.Component{
                     <DisplayWallet />
                 </Col>
             </Row>
-            <Row>
+            {/* <Row>
                 <Col>
                     <Transaction/>
                 </Col>
-            </Row>
+            </Row> */}
             
             </div>
     }

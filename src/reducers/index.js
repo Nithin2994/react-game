@@ -127,6 +127,19 @@ const updateScoresInPvp = (pvpScores={}, action) => {
     return pvpScores
 }
 
+const playerLeaderboardData = (oldData = {}, action) => {
+    console.log("solver ",action.payload)
+    if(action.type == "LOAD_PLAYER_LEADERBOARDS_DATA"){
+        let newData = {};
+        newData.rank = action.payload.rank
+        newData.top = action.payload.top
+        newData.aboveAndBelow = action.payload.aboveAndBelow
+        newData.scores = action.payload.scores
+        return newData
+    }
+    return oldData;
+}
+
 export default combineReducers({
     user: usersReducer,
     leaderboards : leaderboardsReducers,
@@ -137,5 +150,6 @@ export default combineReducers({
     balances : loadBalances,
     form : formReducer,
     pvp : findMatch,
-    pvpScores : updateScoresInPvp
+    pvpScores : updateScoresInPvp,
+    playerLeaderboard : playerLeaderboardData
 })

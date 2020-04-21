@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import histroy from '../history'
 import {Button,Row,Col} from 'react-bootstrap'
 import {logoutUser} from '../actions/useraction'
+import PlayerLeaderboard from './playerLeaderboard'
 
 class Home extends React.Component{
 
@@ -34,8 +35,8 @@ class Home extends React.Component{
                 </Col>
             </Row>
            
-            <LeaderboardDashboard username={this.props.username}/>
-            
+            {/* <LeaderboardDashboard username={this.props.username}/> */}
+            <PlayerLeaderboard />
         </div>
     }
 }

@@ -1,13 +1,13 @@
 import React from 'react'
-import LeaderboardView from './leaderboard'
 import {connect} from 'react-redux'
 import {loadLeaderboards} from '../actions/useraction'
-import {Row,Col,Card} from 'react-bootstrap'
+import PlayerLeaderboardView from './playerLeaderboardView'
+import {Card,Row,Col} from 'react-bootstrap'
 
-class LeaderboardDashboard extends React.Component{
+class PlayerLeaderboard extends React.Component{
 
     componentDidMount(){
-        this.props.loadLeaderboards();
+        this.props.loadLeaderboards()
     }
 
     render(){
@@ -21,7 +21,7 @@ class LeaderboardDashboard extends React.Component{
                 {
                     (this.props.leaderboards != null) ? 
                         this.props.leaderboards.map((lbname)=>{
-                            return <Col><LeaderboardView leaderboardName={lbname}/></Col>
+                            return <Col><PlayerLeaderboardView leaderboardName={lbname}/></Col>
                     }) : ""
                 }
                 </Row>
@@ -31,10 +31,10 @@ class LeaderboardDashboard extends React.Component{
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) =>{
     return {
         leaderboards : state.leaderboards
     }
 }
 
-export default connect(mapStateToProps,{loadLeaderboards})(LeaderboardDashboard)
+export default connect(mapStateToProps,{loadLeaderboards})(PlayerLeaderboard)

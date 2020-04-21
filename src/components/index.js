@@ -11,8 +11,6 @@ const Index = (props) =>{
                 <Col><Register /></Col>
             </Row>
         </Container>
-        
-        
     </div>
 }
 

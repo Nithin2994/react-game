@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {updatePvpScore, endGame, updateScoresInState} from '../actions/useraction'
+import {updateScore, endGame} from '../actions/useraction'
 import histroy from '../history'
 import {Button, Table, Row, Col, Card, Container} from 'react-bootstrap'
 import Cell from './cell'
@@ -15,7 +15,15 @@ class PVPTikTokToeGame extends React.Component{
         myTurn : true
     }
 
-    
+    componentDidUpdate(){
+        if(myTurn == false){
+            setTimeout(()=>{
+                this.setState({
+                    winner : "Opponent Disconnected"
+                })
+            },20000)
+        }
+    }
 
     componentDidMount(){
 
@@ -129,7 +137,23 @@ class PVPTikTokToeGame extends React.Component{
             this.setState({
                 myTurn : false
             })
+            this.props.updateBalance();
+            this.props.updateScore("Covid",this.state.winner,100)
         }
+    }
+
+    updateBalance= async () => {
+        const response =  await gameserver.post("/wallet/credit",{
+            playerName: this.props.username,
+            amount: 100,
+            currency: "gold"
+        },{
+            headers:{
+                token : this.props.token
+            }
+        })
+
+        console.log(response)
     }
 
     endGameHandler = () =>{
@@ -205,7 +229,7 @@ class PVPTikTokToeGame extends React.Component{
             </Row>
             <Card>
             <Card.Header>
-            <h2>Tic Tac Toe</h2>
+            <h2>Tic Tac Toe ( Opponent : {this.props.pvp.opponent})</h2>
             <h3>{this.state.winner ? this.state.winner : this.state.myTurn ? "Your Turn":"Opponent Turn"}</h3>
             </Card.Header>
             <Card.Body>
@@ -220,8 +244,9 @@ class PVPTikTokToeGame extends React.Component{
 const mapStateToProps = (state) => {
     return {
         username : state.user.username,
+        token : state.user.token,
         pvp : state.pvp
     }
 }
 
-export default connect(mapStateToProps,{updatePvpScore,endGame,updateScoresInState})(PVPTikTokToeGame);
+export default connect(mapStateToProps,{updateScore,endGame})(PVPTikTokToeGame);

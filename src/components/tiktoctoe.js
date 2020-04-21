@@ -153,7 +153,7 @@ class PVPTikTokToeGame extends React.Component{
         //     headers:{ token : this.props.token }
         // })
 
-        response = await gameserver.post('/leaderboard/Covid/addScore',
+        let response = await gameserver.post('/leaderboard/Covid/addScore',
         {
             name : this.props.username,
             score : 100

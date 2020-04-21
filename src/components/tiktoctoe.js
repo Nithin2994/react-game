@@ -142,6 +142,9 @@ class PVPTikTokToeGame extends React.Component{
     }
 
     updateBalance = async () => {
+
+        console.log("updateBalance started")
+
         let response =  await gameserver.post("/wallet/credit",{
             playerName: this.props.username,
             amount: 100,
@@ -159,7 +162,7 @@ class PVPTikTokToeGame extends React.Component{
             headers:{ token : this.props.token }
         }
     )
-
+        console.log("updateBalance ended")
         console.log(response)
     }
 

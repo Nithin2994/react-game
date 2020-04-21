@@ -137,8 +137,10 @@ class PVPTikTokToeGame extends React.Component{
             this.setState({
                 myTurn : false
             })
-            this.updateBalance();
-            this.props.updateScore("Covid",this.state.winner,100)
+            if(this.state.winner == this.props.username){
+                this.updateBalance();
+                this.props.updateScore("Covid",this.props.username,100)
+            }
         }
     }
 

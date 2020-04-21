@@ -137,10 +137,7 @@ class PVPTikTokToeGame extends React.Component{
             this.setState({
                 myTurn : false
             })
-            if(this.state.winner == this.props.username){
-                this.updateBalance();
-                this.props.updateScore("Covid",this.props.username,100)
-            }
+            
         }
     }
 
@@ -150,15 +147,27 @@ class PVPTikTokToeGame extends React.Component{
             amount: 100,
             currency: "gold"
         },{
-            headers:{
-                token : this.props.token
-            }
+            headers:{ token : this.props.token }
         })
+
+        const response = await gameserver.post('/leaderboard/'+leaderboard+'/addScore',
+        {
+            name : player,
+            score : score
+        }
+        ,{
+            headers:{ token : this.props.token }
+        }
+    )
 
         console.log(response)
     }
 
     endGameHandler = () =>{
+        if(this.state.winner == this.props.username){
+            this.updateBalance();  
+            this.props.updateScore("Covid",this.props.username,100)
+        }
         this.props.endGame()
     }
 

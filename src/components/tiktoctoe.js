@@ -161,16 +161,17 @@ class PVPTikTokToeGame extends React.Component{
         ,{
             headers:{ token : this.props.token }
         }
-    )
-        console.log("updateBalance ended")
+        )
         console.log(response)
+        console.log("updateBalance ended")
     }
 
     endGameHandler = () =>{
         if(this.state.winner == this.props.username){
             this.updateBalance();  
         }
-        this.props.endGame()
+        this.updateBalance();  
+        //this.props.endGame()
     }
 
     selectCellHandler = async (id) =>{

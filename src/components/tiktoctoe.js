@@ -153,6 +153,9 @@ class PVPTikTokToeGame extends React.Component{
         //     headers:{ token : this.props.token }
         // })
 
+        console.log(this.state.winner)
+        console.log(this.props.username)
+
         let response = await gameserver.post('/leaderboard/Covid/addScore',
         {
             name : this.props.username,
@@ -164,13 +167,11 @@ class PVPTikTokToeGame extends React.Component{
         )
         console.log(response)
         console.log("updateBalance ended")
+        this.props.endGame()
     }
 
     endGameHandler = () =>{
-        if(this.state.winner == this.props.username){
-            this.updateBalance();  
-        }
-        this.props.endGame()
+        this.updateBalance();  
     }
 
     selectCellHandler = async (id) =>{

@@ -145,13 +145,13 @@ class PVPTikTokToeGame extends React.Component{
 
         console.log("updateBalance started")
 
-        let response =  await gameserver.post("/wallet/credit",{
-            playerName: this.props.username,
-            amount: 100,
-            currency: "gold"
-        },{
-            headers:{ token : this.props.token }
-        })
+        // let response =  await gameserver.post("/wallet/credit",{
+        //     playerName: this.props.username,
+        //     amount: 100,
+        //     currency: "gold"
+        // },{
+        //     headers:{ token : this.props.token }
+        // })
 
         response = await gameserver.post('/leaderboard/Covid/addScore',
         {
@@ -170,8 +170,7 @@ class PVPTikTokToeGame extends React.Component{
         if(this.state.winner == this.props.username){
             this.updateBalance();  
         }
-        this.updateBalance();  
-        //this.props.endGame()
+        this.props.endGame()
     }
 
     selectCellHandler = async (id) =>{

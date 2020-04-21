@@ -16,10 +16,10 @@ class PVPTikTokToeGame extends React.Component{
     }
 
     componentDidUpdate(){
-        if(this.state.myTurn == false && !this.state.winner){
+        if(this.state.myTurn == false && !this.state.result){
             setTimeout(()=>{
                 this.setState({
-                    winner : "Opponent Disconnected"
+                    result : "Opponent Disconnected"
                 })
             },20000)
         }
@@ -42,7 +42,7 @@ class PVPTikTokToeGame extends React.Component{
         var msg = JSON.parse(e.data);
         console.log("Received ",msg)
         this.updateGridVals(msg)
-        if(!this.state.winner){
+        if(!this.state.result){
             this.setState({
                 myTurn : true
             })
@@ -62,21 +62,21 @@ class PVPTikTokToeGame extends React.Component{
         if(this.state.selectedData[1] == this.state.selectedData[2]){
             if(this.state.selectedData[2] == this.state.selectedData[3]){
                 if(this.state.selectedData[1]){
-                    this.setState({ winner : "Winner is "+this.state.selectedData[1]})
+                    this.setState({ result : "Winner is "+this.state.selectedData[1], winner: this.state.selectedData[1]})
                 }
             }
         }
 
         if(this.state.selectedData[4] == this.state.selectedData[5]){
             if(this.state.selectedData[5] == this.state.selectedData[6]){
-                if(this.state.selectedData[4]){this.setState({winner : "Winner is "+this.state.selectedData[4]})}
+                if(this.state.selectedData[4]){this.setState({result : "Winner is "+this.state.selectedData[4], winner: this.state.selectedData[4]})}
             }
         }
 
         if(this.state.selectedData[7] == this.state.selectedData[8]){
             if(this.state.selectedData[8] == this.state.selectedData[9]){
                 if(this.state.selectedData[8]){
-                    this.setState({winner : "Winner is "+this.state.selectedData[8]})
+                    this.setState({result : "Winner is "+this.state.selectedData[8], winner: this.state.selectedData[8]})
                 }
             }
         }
@@ -84,7 +84,7 @@ class PVPTikTokToeGame extends React.Component{
         if(this.state.selectedData[1] == this.state.selectedData[5]){
             if(this.state.selectedData[5] == this.state.selectedData[9]){
                 if(this.state.selectedData[5]){
-                    this.setState({winner : "Winner is "+this.state.selectedData[5]})
+                    this.setState({result : "Winner is "+this.state.selectedData[5], winner: this.state.selectedData[5]})
                 }
             }
         }
@@ -92,7 +92,7 @@ class PVPTikTokToeGame extends React.Component{
         if(this.state.selectedData[3] == this.state.selectedData[5]){
             if(this.state.selectedData[5] == this.state.selectedData[7]){
                 if(this.state.selectedData[5]){
-                    this.setState({winner : "Winner is "+this.state.selectedData[5]})
+                    this.setState({result : "Winner is "+this.state.selectedData[5], winner: this.state.selectedData[5]})
                 }
             }
         }
@@ -100,7 +100,7 @@ class PVPTikTokToeGame extends React.Component{
         if(this.state.selectedData[2] == this.state.selectedData[5]){
             if(this.state.selectedData[5] == this.state.selectedData[8]){
                 if(this.state.selectedData[5]){
-                    this.setState({winner : "Winner is "+this.state.selectedData[5]})
+                    this.setState({result : "Winner is "+this.state.selectedData[5], winner: this.state.selectedData[5]})
                 }
             }
         }
@@ -108,7 +108,7 @@ class PVPTikTokToeGame extends React.Component{
         if(this.state.selectedData[1] == this.state.selectedData[4]){
             if(this.state.selectedData[4] == this.state.selectedData[7]){
                 if(this.state.selectedData[4]){
-                    this.setState({winner : "Winner is "+this.state.selectedData[4]})
+                    this.setState({result : "Winner is "+this.state.selectedData[4], winner: this.state.selectedData[4]})
                 }
             }
         }
@@ -116,7 +116,7 @@ class PVPTikTokToeGame extends React.Component{
         if(this.state.selectedData[3] == this.state.selectedData[6]){
             if(this.state.selectedData[6] == this.state.selectedData[9]){
                 if(this.state.selectedData[6]){
-                    this.setState({winner : "Winner is "+this.state.selectedData[6]})
+                    this.setState({result : "Winner is "+this.state.selectedData[6], winner: this.state.selectedData[6]})
                 }
             }
         }
@@ -128,11 +128,11 @@ class PVPTikTokToeGame extends React.Component{
 
         if(count == 9){
             this.setState({
-                winner : "Match is Draw"
+                result : "Match is Draw"
             })
         }
 
-        if(this.state.winner){
+        if(this.state.result){
             this.endGameHandler()
             this.setState({
                 myTurn : false
@@ -142,31 +142,28 @@ class PVPTikTokToeGame extends React.Component{
     }
 
     updateBalance = async () => {
-
-        console.log("updateBalance started")
-
-        // let response =  await gameserver.post("/wallet/credit",{
-        //     playerName: this.props.username,
-        //     amount: 100,
-        //     currency: "gold"
-        // },{
-        //     headers:{ token : this.props.token }
-        // })
-
         console.log(this.state.winner)
         console.log(this.props.username)
+        if(this.state.winner == this.props.username){
+            // let response =  await gameserver.post("/wallet/credit",{
+            //     playerName: this.props.username,
+            //     amount: 100,
+            //     currency: "gold"
+            // },{
+            //     headers:{ token : this.props.token }
+            // })
 
-        let response = await gameserver.post('/leaderboard/Covid/addScore',
-        {
-            name : this.props.username,
-            score : 100
+            let response = await gameserver.post('/leaderboard/Covid/addScore',
+            {
+                name : this.props.username,
+                score : 100
+            }
+            ,{
+                headers:{ token : this.props.token }
+            }
+            )
+            console.log(response)
         }
-        ,{
-            headers:{ token : this.props.token }
-        }
-        )
-        console.log(response)
-        console.log("updateBalance ended")
         this.props.endGame()
     }
 
@@ -227,7 +224,7 @@ class PVPTikTokToeGame extends React.Component{
     }
 
     renderWinner = () => {
-        return <h2>{this.state.winner} </h2>
+        return <h2>{this.state.result} </h2>
     }
 
    
@@ -244,7 +241,7 @@ class PVPTikTokToeGame extends React.Component{
             <Card>
             <Card.Header>
             <h2>Tic Tac Toe ( Opponent : {this.props.pvp.opponent})</h2>
-            <h3>{this.state.winner ? this.state.winner : this.state.myTurn ? "Your Turn":"Opponent Turn"}</h3>
+            <h3>{this.state.result ? this.state.result : this.state.myTurn ? "Your Turn":"Opponent Turn"}</h3>
             </Card.Header>
             <Card.Body>
                 {this.renderGameGrid()}

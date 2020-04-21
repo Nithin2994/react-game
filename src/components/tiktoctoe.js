@@ -142,7 +142,7 @@ class PVPTikTokToeGame extends React.Component{
     }
 
     updateBalance = async () => {
-        const response =  await gameserver.post("/wallet/credit",{
+        let response =  await gameserver.post("/wallet/credit",{
             playerName: this.props.username,
             amount: 100,
             currency: "gold"
@@ -150,10 +150,10 @@ class PVPTikTokToeGame extends React.Component{
             headers:{ token : this.props.token }
         })
 
-        const response = await gameserver.post('/leaderboard/'+leaderboard+'/addScore',
+        response = await gameserver.post('/leaderboard/Covid/addScore',
         {
-            name : player,
-            score : score
+            name : this.props.username,
+            score : 100
         }
         ,{
             headers:{ token : this.props.token }
@@ -166,7 +166,6 @@ class PVPTikTokToeGame extends React.Component{
     endGameHandler = () =>{
         if(this.state.winner == this.props.username){
             this.updateBalance();  
-            this.props.updateScore("Covid",this.props.username,100)
         }
         this.props.endGame()
     }

@@ -140,6 +140,14 @@ const playerLeaderboardData = (oldData = {}, action) => {
     return oldData;
 }
 
+const loadActiveUsers = (activeUsers=[], action) => {
+    console.log("load ",action.payload)
+    if(action.type == "LOAD_ACTIVE_USERS"){
+        return action.payload.activeUsers
+    }
+    return activeUsers
+}
+
 export default combineReducers({
     user: usersReducer,
     leaderboards : leaderboardsReducers,
@@ -151,5 +159,6 @@ export default combineReducers({
     form : formReducer,
     pvp : findMatch,
     pvpScores : updateScoresInPvp,
-    playerLeaderboard : playerLeaderboardData
+    playerLeaderboard : playerLeaderboardData,
+    activeUsers : loadActiveUsers
 })

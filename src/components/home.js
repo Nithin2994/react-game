@@ -11,6 +11,10 @@ import PlayerLeaderboard from './playerLeaderboard'
 
 class Home extends React.Component{
 
+    componentDidMount(){
+        this.ws = new WebSocket('ws://3.17.67.172:8081/chat/'+this.props.username);
+    }
+
     render(){
         return <div>
             <Row>
@@ -19,6 +23,9 @@ class Home extends React.Component{
                 </Col>
                 <Col>
                     <Button style={{backgroundColor:"#24bfb8",border:"#24bfb8"}} block onClick={()=>{histroy.push("/games")}}>Games</Button>
+                </Col>
+                <Col>
+                    <Button style={{backgroundColor:"#24bfb8",border:"#24bfb8"}} block onClick={()=>{histroy.push("/contacts")}}>Contacts</Button>
                 </Col>
                 <Col>
                     <Button style={{backgroundColor:"#d94545",border:"#d94545"}} block onClick={()=>{ this.props.logoutUser() ; histroy.push("/login")}}>Logout</Button>

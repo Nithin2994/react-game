@@ -1,6 +1,20 @@
-.leaderboards-list {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(200px,0.5fr));
-    grid-gap: 2%;  */
+.msg_cotainer_left{
+    border-radius: 10px;
+    background-color: #82ccdd;
+    padding-left:5%;
+    padding-right:5%;
+    padding-top:2%;
+    padding-bottom:2%;
+    float: left;
+    margin-left: 5%;
 }
-
+.msg_cotainer_right{
+    border-radius: 10px;
+    background-color: #82ccdd;
+    padding-left:5%;
+    padding-right:5%;
+    padding-top:2%;
+    padding-bottom:2%;
+    float: right;
+    margin-right: 5%;
+}

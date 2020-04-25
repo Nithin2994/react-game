@@ -53,7 +53,7 @@ export const loadLeaderboardData = (leaderboardId) => async (dispatch) =>{
 export const getPlayerLeaderboard = (playerId,leaderboard) => async (dispatch) =>{
     const username = store.getState().user.username
     const sessiontoken = store.getState().user.token
-    
+
     const response =  await gameserver.get('/leaderboard/'+leaderboard+"/"+username,{
         headers : {token : sessiontoken}
     })
@@ -253,4 +253,16 @@ export const loadBalances = (username,usertoken) => async (dispatch) => {
         }
     })
 
+}
+
+export const getActiveUsers = () => async (dispatch) => {
+    const response = await gameserver.get('/activeUsers')
+    if(response.data.users){
+        dispatch({
+            type : "LOAD_ACTIVE_USERS",
+            payload : {
+                activeUsers : response.data.users
+            }
+        })
+    }
 }

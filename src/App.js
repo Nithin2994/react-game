@@ -9,8 +9,9 @@ import Register from './components/register';
 import Index from './components';
 import Home from './components/home';
 import Wallet from './components/wallet';
-import MainComponent from './components/main'
-import history from './history'
+import ChatComponent from './components/chat';
+import ContactsComponent from './components/contacts';
+import history from './history';
 import PVPHome from './components/pvpHome';
 import pvpGame from './components/pvpGame';
 import PVPTikTocToeGame from './components/tiktoctoe';
@@ -27,8 +28,9 @@ function App() {
       <Container>
        <Switch>
         <Route path="/login" component={Login} />  
-        <Route path="/register" component={Register} />  
-        <Route path="/logintest/:type" exact component={MainComponent} />
+        <Route path="/register" component={Register} /> 
+        <Route path="/contacts" component={ContactsComponent} /> 
+        <Route path="/chat/:to" exact component={ChatComponent} />
         <Route path="/home" extact component={Home} />
         <Route path="/wallet" extact component={Wallet} />
         <Route path="/pvp/:game" extact component={PVPHome} />
